@@ -3,8 +3,8 @@
     <State id="0">
         <message>Hello, My name is MajBot, what is your name?</message>
         <keywords>       
-            <keyword target="16" variable="name" points="2">.*name is ([a-zA-z]+).*</keyword>
-            <keyword target="16" variable="name">([a-zA-Z ]+)</keyword>
+            <keyword target="1" variable="name" points="2">.*name is ([a-zA-z]+).*</keyword>
+            <keyword target="1" variable="name">([a-zA-Z ]+)</keyword>
         </keywords>
     </State>
 
