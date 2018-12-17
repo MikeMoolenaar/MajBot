@@ -1,4 +1,4 @@
 test/*
 build/*
+.idea/*
 .DS_Store
-
