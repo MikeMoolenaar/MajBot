@@ -26,7 +26,8 @@ public class Weather {
     public String dayAfterTomorrow = "";
 
     // yahoo API URL for london weather
-    private static String url = "http://weather.yahooapis.com/forecastrss?u=c&w=44418";
+    // documentation can be found here https://developer.yahoo.com/weather/documentation.html
+    private static String url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22Amsterdam%22)&format=xml&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
 
     // default constructor
     public Weather() {
