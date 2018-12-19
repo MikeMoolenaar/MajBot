@@ -46,6 +46,7 @@ public class Main extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Majid's Chat Bot");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Majid's Chat Bot"));
 

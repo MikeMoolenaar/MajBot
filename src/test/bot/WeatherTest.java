@@ -13,6 +13,11 @@ import static org.junit.Assert.*;
  */
 public class WeatherTest {
 
+    /**
+     * Condition names from the Yahoo weather API
+     * Source: https://developer.yahoo.com/weather/documentation.html#codetable
+     * Added 'rain' even though it isn't in the documentation but could be given by the API.
+     */
     private String[] allowedResponses = {
             "tornado",
             "tropical storm",

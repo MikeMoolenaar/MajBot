@@ -80,7 +80,7 @@ public class Bot {
     }
 
     // parse the given text to find best match in the keywords
-    private Keyword parse(String text, ArrayList<Keyword> keylist) {
+    public Keyword parse(String text, ArrayList<Keyword> keylist) {
 
         // set the default match to none
         int bestMatch = -1;
@@ -130,7 +130,7 @@ public class Bot {
     }
 
     // get number of matches of the given keywords in the given list
-    private int getMatches(String text, Keyword keyword) {
+    public int getMatches(String text, Keyword keyword) {
 
         // no match by default
         int result = -1;
@@ -177,5 +177,9 @@ public class Bot {
 
         // remove empty variables tags
         return Regex.clear(text);
+    }
+
+    public HashMap<String, String> getDictionary() {
+        return dictionary;
     }
 }

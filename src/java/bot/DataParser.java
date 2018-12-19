@@ -24,8 +24,12 @@ public class DataParser {
     private int invalidMessageIndex = 0;
     public  int stateCounter = 1000;
 
-    // default constructor
     public DataParser() {
+        this("data.xml");
+    }
+
+    // default constructor
+    public DataParser(String file) {
 
         // Load the XML file and parse it
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -36,7 +40,7 @@ public class DataParser {
             DocumentBuilder db = dbf.newDocumentBuilder();
 
             //parse using builder to get DOM representation of the XML file
-            dom = db.parse("data.xml");
+            dom = db.parse(file);
 
             // Load configuration and states from the XML file
             loadConfiguration();
