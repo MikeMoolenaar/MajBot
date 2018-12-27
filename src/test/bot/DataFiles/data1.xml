@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Config>
+    <State id="0">
+        <message>Hello, My name is MajBot, what is your name?</message>
+        <keywords>
+            <keyword target="1" variable="name" points="2">.*name is ([a-zA-z]+).*</keyword>
+            <keyword target="1" variable="name">([a-zA-Z ]+)</keyword>
+        </keywords>
+    </State>
+
+    <InvalidMessages>
+        <message>Sorry, I don't understand?</message>
+        <message>Oopsie I don't understand!</message>
+        <message>Oopsie woopsie! I don't understand!?</message>
+        <message>Oopsie woopsie! I don't understand!?</message>
+    </InvalidMessages>
+</Config>

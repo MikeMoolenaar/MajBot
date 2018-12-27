@@ -2,7 +2,11 @@ package bot;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.xml.sax.SAXException;
 
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import static org.junit.Assert.*;
@@ -17,14 +21,13 @@ public class BotTest {
     private Bot bot;
 
     @Before
-    public void setUp() {
+    public void setUp() throws IOException, ParserConfigurationException, SAXException {
         this.bot = new Bot("1", new DataParser());
     }
 
     @Test
     public void send() {
         String unknownText = "cow";
-        String nothing = "   ";
 
         this.bot.send(unknownText);
 

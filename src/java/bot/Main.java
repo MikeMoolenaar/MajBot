@@ -1,5 +1,7 @@
 package bot;
 
+import java.io.FileNotFoundException;
+
 /**
  * MajBot 1.0
  * 
@@ -13,15 +15,21 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         initComponents();
 
-        // construct a data parser
-        DataParser dp = new DataParser();
+        try {
 
-        // construct new bot with level 0 as default and given data parser
-        bot = new Bot("0", dp);
 
-        // display the default message
-        txtHistory.setText("Bot: " + bot.getMessage());
+            // construct a data parser
+            DataParser dp = new DataParser();
 
+            // construct new bot with level 0 as default and given data parser
+            bot = new Bot("0", dp);
+
+            // display the default message
+            txtHistory.setText("Bot: " + bot.getMessage());
+        }
+        catch(Exception ex) {
+            txtHistory.setText("Oops, something went wrong!");
+        }
     }
 
     // display bot response in the text area

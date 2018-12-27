@@ -1,5 +1,6 @@
 package bot;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,12 +25,12 @@ public class DataParser {
     private int invalidMessageIndex = 0;
     public  int stateCounter = 1000;
 
-    public DataParser() {
+    public DataParser() throws IOException, ParserConfigurationException, SAXException {
         this("data.xml");
     }
 
     // default constructor
-    public DataParser(String file) {
+    public DataParser(String file) throws IOException, SAXException, ParserConfigurationException {
 
         // Load the XML file and parse it
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -45,12 +46,10 @@ public class DataParser {
             // Load configuration and states from the XML file
             loadConfiguration();
             loadStates();
-        } catch (ParserConfigurationException pce) {
-            pce.printStackTrace();
-        } catch (SAXException se) {
-            se.printStackTrace();
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
+        } catch(FileNotFoundException ex) {
+            throw new FileNotFoundException(file + " could not be found.");
+        } catch (Exception ex) {
+            throw ex;
         }
     }
 
@@ -188,30 +187,35 @@ public class DataParser {
     }
 
     // load cofig tags from data xml file
-    private void loadConfiguration() {
+    private void loadConfiguration() throws ParserConfigurationException {
 
-        // get document element
-        Element docEle = dom.getDocumentElement();
+        try {
+            // get document element
+            Element docEle = dom.getDocumentElement();
 
-        // get all node names for invalid messages
-        NodeList node = docEle.getElementsByTagName("InvalidMessages");
+            // get all node names for invalid messages
+            NodeList node = docEle.getElementsByTagName("InvalidMessages");
 
-        // get all message nodes inside invalid messages node
-        NodeList nl = ((Element) node.item(0)).getElementsByTagName("message");
+            // get all message nodes inside invalid messages node
+            NodeList nl = ((Element) node.item(0)).getElementsByTagName("message");
 
-        // if node is not null and has children
-        if (nl != null && nl.getLength() > 0) {
+            // if node is not null and has children
+            if (nl != null && nl.getLength() > 0) {
 
-            // loop through all children
-            for (int i = 0; i < nl.getLength(); i++) {
+                // loop through all children
+                for (int i = 0; i < nl.getLength(); i++) {
 
-                // get message node
-                Element el = (Element) nl.item(i);
+                    // get message node
+                    Element el = (Element) nl.item(i);
 
-                // get message and add it to invalid messages array
-                String message = el.getFirstChild().getNodeValue();
-                invalidMessages.add(message);
+                    // get message and add it to invalid messages array
+                    String message = el.getFirstChild().getNodeValue();
+                    invalidMessages.add(message);
+                }
             }
+        }
+        catch (Exception ex) {
+            throw new ParserConfigurationException("Error in configuration");
         }
     }
 }
