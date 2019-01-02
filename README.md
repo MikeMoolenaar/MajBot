@@ -8,11 +8,11 @@ The original README can be found in the `README_ORIGINAL.md`.
 Please follow this setup guide if you want to run the Unit tests, it assumes you have a recent version of Intelij IDEA and Java 10.
 
 - Clone or download this repo and open the folder `Majbot` in Intelij.
-- In the project-view, go to `src/java`, right-click on the `java` and mark the directory as `Sources Root`
+- In the project-view, go to `src/java`, right-click on the `java` folder and mark the directory as `Sources Root`
 - Go to `src/test`, right-click on the `test` folder and mark the directory as `Test Sources Root`.
 
-- Go to `src/java/bot/lib`, select all the .jar files and right-click -> `Add ass Library...`, then click OK.
-- Click on the `BotTest` class in the `test/bot` folder, hold the cursor on the red marked `@Test` -> Alt+Enter(or click the red lamp) -> `Add 'JUnit4' to classpath`.
+- Go to `src/java/bot/lib`, select all the .jar files in there and right-click -> `Add as Library...`, then click OK.
+- Click on the `BotTest` class in the `src/test/bot` folder, hold the cursor on the red marked `@Test` -> Alt+Enter(or click on the red lamp) -> `Add 'JUnit4' to classpath`.
 - Make sure the Project language level is set to 10, you can do this by going to File -> Project structure... -> Project language level.
 
 You should be all set!
